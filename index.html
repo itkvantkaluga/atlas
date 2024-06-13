@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>моя игра</title>
+</head>
+<body>
+    <h1>игра отгодайка</h1>
+    <p>компьютер загадал число от 1 до 10</p>
+    <p>увас есть 3 попытки чтобы отгадать его</p>
+    <p>для начала игры нажми кнопку СТАРТ</p>
+    <button class="bt1">старт</button>
+    <p class="victory">количество побед: 0</p>
+    <p class="dead">количество поражений: 0</p> 
+
+<script>
+
+let victory = 0;
+let dead = 0;
+function game() {
+let numberComp = Math.floor(Math.random()*10)+ 1
+
+
+console.log(numberComp);
+
+let number;
+
+for (let i = 0; i <3; i++){
+number = +prompt('Введите число:','');
+if(number==numberComp){
+
+break;
+}
+else if (number>numberComp){
+alert('неверное , число ваше больше');
+}
+else { alert('неверно,число ваше меньше');}
+}
+if (number !==numberComp){
+alert(' проиграл ты');
+dead++;
+document.querySelector('.dead').innerHTML = 'количество поражений: '+dead;
+
+}
+else{
+alert('ПОБЕДИЛ ТЫ');
+victory++
+document.querySelector('.victory').innerHTML = 'количество побед: '+ victory;
+
+
+}
+
+}
+document.querySelector('button').onclick=game;
+
+</script>
+
+</body>
+</html>
